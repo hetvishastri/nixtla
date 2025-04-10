@@ -10,7 +10,7 @@ from .models.utils.forecaster import Forecaster
 from .utils.experiment_handler import ExperimentDataset, ForecastDataset
 from .utils.logger_config import setup_logger
 
-
+import sys
 main_logger = setup_logger(__name__)
 
 
@@ -26,8 +26,11 @@ def print_df_rich(df: pd.DataFrame):
     console.print(table)
 
 
-def time_to_df(total_time: float, model_name: str) -> pd.DataFrame:
-    return pd.DataFrame({"metric": ["time"], model_name: [total_time]})
+def time_to_df(total_time: float, average_batch_time:float,average_split_time:float,model_name: str) -> pd.DataFrame:
+    return pd.DataFrame([{"metric": "time", model_name: total_time},
+            {"metric": "AVG batch time", model_name: average_batch_time},
+            {"metric": "AVG split time", model_name: average_split_time},
+            ])
 
 
 class FoundationalTimeSeriesArena:
@@ -64,7 +67,7 @@ class FoundationalTimeSeriesArena:
                 if not is_forecast_ready or overwrite:
                     main_logger.info(f"Forecasting {model.alias}")
                     start = perf_counter()
-                    forecast_df = model.cross_validation(
+                    forecast_df,average_batch_time,average_split_time = model.cross_validation(
                         df=dataset.df,
                         h=dataset.horizon,
                         freq=dataset.pandas_frequency,
@@ -72,8 +75,9 @@ class FoundationalTimeSeriesArena:
                     total_time = perf_counter() - start
                     fcst_dataset = ForecastDataset(
                         forecast_df=forecast_df,
-                        time_df=time_to_df(total_time, model.alias),
+                        time_df=time_to_df(total_time, average_batch_time,average_split_time,model.alias),
                     )
+                    print(time_to_df(total_time, average_batch_time,average_split_time,model.alias))
                     fcst_dataset.save_to_dir(dir=model_results_path)
                 else:
                     main_logger.info(f"Loading {model.alias} forecast")
@@ -112,66 +116,29 @@ class FoundationalTimeSeriesArena:
 
 
 if __name__ == "__main__":
-    import fire
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("repo_id", help="Model repo ID, e.g., amazon/chronos-t5-mini")
+    parser.add_argument("alias", help="Custom alias to name the model")
+    args = parser.parse_args()
 
-    from .models.benchmarks import (
-        ADIDA,
-        AutoARIMA,
-        AutoCES,
-        AutoETS,
-        AutoLGBM,
-        AutoNHITS,
-        AutoTFT,
-        CrostonClassic,
-        DOTheta,
-        HistoricAverage,
-        NixtlaProphet,
-        IMAPA,
-        SeasonalNaive,
-        Theta,
-        ZeroModel,
-    )
+    import fire
+    
     from .models.foundational import (
         Chronos,
-        LagLlama,
-        Moirai,
-        TimeGPT,
-        TimesFM,
     )
 
-    frequencies = ["Hourly", "Daily", "Weekly", "Monthly"]
+    # frequencies = ["electricity_hourly_dataset"]
+    frequencies = ["Hourly"]
     files = [
         f"./nixtla-foundational-time-series/data/{freq}.parquet" for freq in frequencies
     ]
+    print(f"Predicting for {sys.argv[1]}")
     arena = FoundationalTimeSeriesArena(
         models=[
-            # naive
-            SeasonalNaive(),
-            HistoricAverage(),
-            ZeroModel(),
-            # statistical
-            AutoARIMA(),
-            NixtlaProphet(),
-            AutoCES(),
-            AutoETS(),
-            Theta(),
-            DOTheta(),
-            ADIDA(),
-            IMAPA(),
-            CrostonClassic(),
-            # ml
-            AutoLGBM(),
-            # neural
-            AutoTFT(),
-            AutoNHITS(),
-            # foundational models
-            Chronos(),
-            LagLlama(),
-            Moirai(),
-            TimeGPT(),
-            TimeGPT(model="timegpt-1-long-horizon", alias="TimeGPTLongHorizon"),
-            TimesFM(),
+            Chronos(repo_id=args.repo_id, batch_size=1,alias=args.alias)
         ],
         parquet_data_paths=files,
     )
-    fire.Fire(arena.compete)
+    # fire.Fire(arena.compete)
+    arena.compete()

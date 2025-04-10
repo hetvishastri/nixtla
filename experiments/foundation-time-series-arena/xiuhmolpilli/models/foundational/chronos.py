@@ -1,5 +1,5 @@
 from typing import Iterable, List
-
+from time import perf_counter
 import numpy as np
 import pandas as pd
 import torch
@@ -75,10 +75,11 @@ class TimeSeriesDataset:
 class Chronos(Forecaster):
     def __init__(
         self,
-        repo_id: str = "amazon/chronos-t5-large",
+        repo_id: str = "amazon/chronos-t5-tiny",
         batch_size: int = 16,
         alias: str = "Chronos",
     ):
+        print(repo_id)
         self.repo_id = repo_id
         self.batch_size = batch_size
         self.alias = alias
@@ -95,11 +96,18 @@ class Chronos(Forecaster):
         freq: str,
     ) -> pd.DataFrame:
         dataset = TimeSeriesDataset.from_df(df, batch_size=self.batch_size)
-        fcsts = [
-            self.model.predict(batch, prediction_length=h) for batch in tqdm(dataset)
-        ]
+        inference_times=[]
+        fcsts=[]
+        for batch in tqdm(dataset):
+            start = perf_counter()
+            pred = self.model.predict(batch, prediction_length=h)
+            inference_times.append(perf_counter() - start)
+            fcsts.append(pred)
         fcst = torch.cat(fcsts)
         fcst = fcst.numpy()
         fcst_df = dataset.make_future_dataframe(h=h, freq=freq)
         fcst_df[self.alias] = np.mean(fcst, axis=1).reshape(-1, 1)
-        return fcst_df
+        total_inference_time = sum(inference_times)
+        average_batch_time = total_inference_time / len(inference_times)
+        print(f"Total inference time: {total_inference_time:.4f}s, Avg per batch: {average_batch_time:.4f}s")
+        return fcst_df,average_batch_time,total_inference_time

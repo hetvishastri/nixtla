@@ -15,8 +15,8 @@ neuralforecast
 utilsforecast
 mlforecast
 lightgbm
-chronos @ git+https://github.com/amazon-science/chronos-forecasting.git
-salesforce-uni2ts @ git+https://github.com/SalesforceAIResearch/uni2ts.git
+chronos-forecasting @ git+https://github.com/amazon-science/chronos-forecasting.git
+uni2ts @ git+https://github.com/SalesforceAIResearch/uni2ts.git
 timesfm @ git+https://github.com/AzulGarza/timesfm.git@fix-structure
 jax[cuda12]
 pytest
