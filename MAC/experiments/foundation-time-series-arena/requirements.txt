@@ -1,0 +1,24 @@
+gluonts==0.14.4
+numpy>=1.26.0
+torch>=2.0.0
+wandb
+scipy
+pandas
+huggingface_hub[cli]
+einshape
+fire
+nixtla
+python-dotenv
+rich
+statsforecast
+neuralforecast
+utilsforecast
+mlforecast
+lightgbm
+chronos-forecasting @ git+https://github.com/amazon-science/chronos-forecasting.git
+grpcio
+uni2ts @ git+https://github.com/SalesforceAIResearch/uni2ts.git
+# timesfm @ git+https://github.com/AzulGarza/timesfm.git@fix-structure
+jax
+pytest
+prophet

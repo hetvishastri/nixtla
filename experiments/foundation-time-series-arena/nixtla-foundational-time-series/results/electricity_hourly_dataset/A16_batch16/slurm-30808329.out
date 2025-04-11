@@ -1,283 +1,0 @@
-Loading conda
-2025-03-30 22:38:12.033677: I tensorflow/core/util/util.cc:169] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2025-03-30 22:38:12.037308: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2025-03-30 22:38:12.037322: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-INFO:absl:Lingvo with eager execution is in early development. Please reach out to go/lingvo-eager-migration with bugs. Eager mode can be disable with tf.compat.v1.disable_eager_execution().
-INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
-2025-03-30 22:38:25,INFO,arena,Running on nixtla-foundational-time-series/data/electricity_hourly_dataset.parquet
-INFO:__main__:Running on nixtla-foundational-time-series/data/electricity_hourly_dataset.parquet
-2025-03-30 22:38:27,INFO,arena,Evaluating chronos_tiny
-INFO:__main__:Evaluating chronos_tiny
-2025-03-30 22:38:27,INFO,arena,Forecasting chronos_tiny
-INFO:__main__:Forecasting chronos_tiny
-Predicting for amazon/chronos-t5-tiny
-amazon/chronos-t5-tiny
-0it [00:00, ?it/s]
-  0%|          | 0/21 [00:00<?, ?it/s][A
-  5%|▍         | 1/21 [00:01<00:23,  1.17s/it][A
- 10%|▉         | 2/21 [00:01<00:17,  1.11it/s][A
- 14%|█▍        | 3/21 [00:02<00:14,  1.22it/s][A
- 19%|█▉        | 4/21 [00:03<00:13,  1.29it/s][A
- 24%|██▍       | 5/21 [00:04<00:12,  1.32it/s][A
- 29%|██▊       | 6/21 [00:04<00:11,  1.34it/s][A
- 33%|███▎      | 7/21 [00:05<00:10,  1.36it/s][A
- 38%|███▊      | 8/21 [00:06<00:09,  1.37it/s][A
- 43%|████▎     | 9/21 [00:06<00:08,  1.37it/s][A
- 48%|████▊     | 10/21 [00:07<00:07,  1.38it/s][A
- 52%|█████▏    | 11/21 [00:08<00:07,  1.38it/s][A
- 57%|█████▋    | 12/21 [00:09<00:06,  1.38it/s][A
- 62%|██████▏   | 13/21 [00:09<00:05,  1.38it/s][A
- 67%|██████▋   | 14/21 [00:10<00:05,  1.38it/s][A
- 71%|███████▏  | 15/21 [00:11<00:04,  1.38it/s][A
- 76%|███████▌  | 16/21 [00:11<00:03,  1.38it/s][A
- 81%|████████  | 17/21 [00:12<00:02,  1.38it/s][A
- 86%|████████▌ | 18/21 [00:13<00:02,  1.38it/s][A
- 90%|█████████ | 19/21 [00:14<00:01,  1.39it/s][A
- 95%|█████████▌| 20/21 [00:14<00:00,  1.38it/s][A
-100%|██████████| 21/21 [00:14<00:00,  1.86it/s][A100%|██████████| 21/21 [00:14<00:00,  1.40it/s]
-1it [00:18, 18.31s/it]1it [00:18, 18.31s/it]
-2025-03-30 22:38:47,INFO,arena,Evaluating forecasts
-INFO:__main__:Evaluating forecasts
-Total inference time: 14.9575s, Avg per batch: 0.7123s
-           metric  chronos_tiny
-0            time     20.528044
-1  AVG batch time      0.712260
-2  AVG split time     14.957457
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┓
-┃ dataset                    ┃ metric         ┃ chronos_tiny ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━┩
-│ electricity_hourly_dataset │ time           │ 20.528       │
-│ electricity_hourly_dataset │ AVG batch time │ 0.712        │
-│ electricity_hourly_dataset │ AVG split time │ 14.957       │
-│ electricity_hourly_dataset │ mase           │ 1.562        │
-└────────────────────────────┴────────────────┴──────────────┘
-2025-03-30 22:39:04.529039: I tensorflow/core/util/util.cc:169] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2025-03-30 22:39:04.532192: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2025-03-30 22:39:04.532206: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-INFO:absl:Lingvo with eager execution is in early development. Please reach out to go/lingvo-eager-migration with bugs. Eager mode can be disable with tf.compat.v1.disable_eager_execution().
-INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
-2025-03-30 22:39:13,INFO,arena,Running on nixtla-foundational-time-series/data/electricity_hourly_dataset.parquet
-INFO:__main__:Running on nixtla-foundational-time-series/data/electricity_hourly_dataset.parquet
-2025-03-30 22:39:15,INFO,arena,Evaluating chronos_mini
-INFO:__main__:Evaluating chronos_mini
-2025-03-30 22:39:15,INFO,arena,Forecasting chronos_mini
-INFO:__main__:Forecasting chronos_mini
-Predicting for amazon/chronos-t5-mini
-amazon/chronos-t5-mini
-0it [00:00, ?it/s]
-  0%|          | 0/21 [00:00<?, ?it/s][A
-  5%|▍         | 1/21 [00:01<00:34,  1.74s/it][A
- 10%|▉         | 2/21 [00:03<00:29,  1.54s/it][A
- 14%|█▍        | 3/21 [00:04<00:26,  1.48s/it][A
- 19%|█▉        | 4/21 [00:05<00:24,  1.45s/it][A
- 24%|██▍       | 5/21 [00:07<00:22,  1.44s/it][A
- 29%|██▊       | 6/21 [00:08<00:21,  1.43s/it][A
- 33%|███▎      | 7/21 [00:10<00:19,  1.42s/it][A
- 38%|███▊      | 8/21 [00:11<00:18,  1.42s/it][A
- 43%|████▎     | 9/21 [00:12<00:16,  1.41s/it][A
- 48%|████▊     | 10/21 [00:14<00:15,  1.41s/it][A
- 52%|█████▏    | 11/21 [00:15<00:14,  1.41s/it][A
- 57%|█████▋    | 12/21 [00:17<00:12,  1.40s/it][A
- 62%|██████▏   | 13/21 [00:18<00:11,  1.40s/it][A
- 67%|██████▋   | 14/21 [00:19<00:09,  1.40s/it][A
- 71%|███████▏  | 15/21 [00:21<00:08,  1.40s/it][A
- 76%|███████▌  | 16/21 [00:22<00:07,  1.40s/it][A
- 81%|████████  | 17/21 [00:24<00:05,  1.40s/it][A
- 86%|████████▌ | 18/21 [00:25<00:04,  1.40s/it][A
- 90%|█████████ | 19/21 [00:27<00:02,  1.40s/it][A
- 95%|█████████▌| 20/21 [00:28<00:01,  1.40s/it][A
-100%|██████████| 21/21 [00:28<00:00,  1.03s/it][A100%|██████████| 21/21 [00:28<00:00,  1.36s/it]
-1it [00:31, 31.93s/it]1it [00:31, 31.93s/it]
-2025-03-30 22:39:50,INFO,arena,Evaluating forecasts
-INFO:__main__:Evaluating forecasts
-Total inference time: 28.5550s, Avg per batch: 1.3598s
-           metric  chronos_mini
-0            time     34.186115
-1  AVG batch time      1.359760
-2  AVG split time     28.554961
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┓
-┃ dataset                    ┃ metric         ┃ chronos_mini ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━┩
-│ electricity_hourly_dataset │ time           │ 34.186       │
-│ electricity_hourly_dataset │ AVG batch time │ 1.360        │
-│ electricity_hourly_dataset │ AVG split time │ 28.555       │
-│ electricity_hourly_dataset │ mase           │ 1.352        │
-└────────────────────────────┴────────────────┴──────────────┘
-2025-03-30 22:40:08.089707: I tensorflow/core/util/util.cc:169] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2025-03-30 22:40:08.092827: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2025-03-30 22:40:08.092840: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-INFO:absl:Lingvo with eager execution is in early development. Please reach out to go/lingvo-eager-migration with bugs. Eager mode can be disable with tf.compat.v1.disable_eager_execution().
-INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
-2025-03-30 22:40:18,INFO,arena,Running on nixtla-foundational-time-series/data/electricity_hourly_dataset.parquet
-INFO:__main__:Running on nixtla-foundational-time-series/data/electricity_hourly_dataset.parquet
-2025-03-30 22:40:20,INFO,arena,Evaluating chronos_small
-INFO:__main__:Evaluating chronos_small
-2025-03-30 22:40:20,INFO,arena,Forecasting chronos_small
-INFO:__main__:Forecasting chronos_small
-Predicting for amazon/chronos-t5-small
-amazon/chronos-t5-small
-0it [00:00, ?it/s]
-  0%|          | 0/21 [00:00<?, ?it/s][A
-  5%|▍         | 1/21 [00:02<00:50,  2.52s/it][A
- 10%|▉         | 2/21 [00:04<00:43,  2.31s/it][A
- 14%|█▍        | 3/21 [00:06<00:40,  2.24s/it][A
- 19%|█▉        | 4/21 [00:08<00:37,  2.21s/it][A
- 24%|██▍       | 5/21 [00:11<00:35,  2.19s/it][A
- 29%|██▊       | 6/21 [00:13<00:32,  2.18s/it][A
- 33%|███▎      | 7/21 [00:15<00:30,  2.17s/it][A
- 38%|███▊      | 8/21 [00:17<00:28,  2.16s/it][A
- 43%|████▎     | 9/21 [00:19<00:25,  2.16s/it][A
- 48%|████▊     | 10/21 [00:21<00:23,  2.16s/it][A
- 52%|█████▏    | 11/21 [00:24<00:21,  2.16s/it][A
- 57%|█████▋    | 12/21 [00:26<00:19,  2.16s/it][A
- 62%|██████▏   | 13/21 [00:28<00:17,  2.16s/it][A
- 67%|██████▋   | 14/21 [00:30<00:15,  2.15s/it][A
- 71%|███████▏  | 15/21 [00:32<00:12,  2.15s/it][A
- 76%|███████▌  | 16/21 [00:34<00:10,  2.16s/it][A
- 81%|████████  | 17/21 [00:36<00:08,  2.16s/it][A
- 86%|████████▌ | 18/21 [00:39<00:06,  2.16s/it][A
- 90%|█████████ | 19/21 [00:41<00:04,  2.16s/it][A
- 95%|█████████▌| 20/21 [00:43<00:02,  2.16s/it][A
-100%|██████████| 21/21 [00:43<00:00,  1.57s/it][A100%|██████████| 21/21 [00:43<00:00,  2.08s/it]
-1it [00:47, 47.05s/it]1it [00:47, 47.05s/it]
-2025-03-30 22:41:09,INFO,arena,Evaluating forecasts
-INFO:__main__:Evaluating forecasts
-Total inference time: 43.6769s, Avg per batch: 2.0799s
-           metric  chronos_small
-0            time      49.334999
-1  AVG batch time       2.079850
-2  AVG split time      43.676860
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
-┃ dataset                    ┃ metric         ┃ chronos_small ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
-│ electricity_hourly_dataset │ time           │ 49.335        │
-│ electricity_hourly_dataset │ AVG batch time │ 2.080         │
-│ electricity_hourly_dataset │ AVG split time │ 43.677        │
-│ electricity_hourly_dataset │ mase           │ 1.481         │
-└────────────────────────────┴────────────────┴───────────────┘
-2025-03-30 22:41:28.483752: I tensorflow/core/util/util.cc:169] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2025-03-30 22:41:28.486866: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2025-03-30 22:41:28.486878: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-INFO:absl:Lingvo with eager execution is in early development. Please reach out to go/lingvo-eager-migration with bugs. Eager mode can be disable with tf.compat.v1.disable_eager_execution().
-INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
-2025-03-30 22:41:39,INFO,arena,Running on nixtla-foundational-time-series/data/electricity_hourly_dataset.parquet
-INFO:__main__:Running on nixtla-foundational-time-series/data/electricity_hourly_dataset.parquet
-2025-03-30 22:41:41,INFO,arena,Evaluating chronos_base
-INFO:__main__:Evaluating chronos_base
-2025-03-30 22:41:41,INFO,arena,Forecasting chronos_base
-INFO:__main__:Forecasting chronos_base
-Predicting for amazon/chronos-t5-base
-amazon/chronos-t5-base
-0it [00:00, ?it/s]
-  0%|          | 0/21 [00:00<?, ?it/s][A
-  5%|▍         | 1/21 [00:07<02:29,  7.46s/it][A
- 10%|▉         | 2/21 [00:14<02:17,  7.22s/it][A
- 14%|█▍        | 3/21 [00:21<02:08,  7.14s/it][A
- 19%|█▉        | 4/21 [00:28<02:00,  7.11s/it][A
- 24%|██▍       | 5/21 [00:35<01:53,  7.09s/it][A
- 29%|██▊       | 6/21 [00:42<01:46,  7.08s/it][A
- 33%|███▎      | 7/21 [00:49<01:39,  7.08s/it][A
- 38%|███▊      | 8/21 [00:56<01:32,  7.08s/it][A
- 43%|████▎     | 9/21 [01:03<01:24,  7.08s/it][A
- 48%|████▊     | 10/21 [01:11<01:17,  7.08s/it][A
- 52%|█████▏    | 11/21 [01:18<01:10,  7.08s/it][A
- 57%|█████▋    | 12/21 [01:25<01:03,  7.09s/it][A
- 62%|██████▏   | 13/21 [01:32<00:56,  7.09s/it][A
- 67%|██████▋   | 14/21 [01:39<00:49,  7.09s/it][A
- 71%|███████▏  | 15/21 [01:46<00:42,  7.09s/it][A
- 76%|███████▌  | 16/21 [01:53<00:35,  7.10s/it][A
- 81%|████████  | 17/21 [02:00<00:28,  7.10s/it][A
- 86%|████████▌ | 18/21 [02:07<00:21,  7.10s/it][A
- 90%|█████████ | 19/21 [02:14<00:14,  7.10s/it][A
- 95%|█████████▌| 20/21 [02:22<00:07,  7.10s/it][A
-100%|██████████| 21/21 [02:22<00:00,  5.14s/it][A100%|██████████| 21/21 [02:22<00:00,  6.79s/it]
-1it [02:25, 145.96s/it]1it [02:25, 145.96s/it]
-2025-03-30 22:44:09,INFO,arena,Evaluating forecasts
-INFO:__main__:Evaluating forecasts
-Total inference time: 142.6015s, Avg per batch: 6.7905s
-           metric  chronos_base
-0            time    148.220609
-1  AVG batch time      6.790546
-2  AVG split time    142.601470
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┓
-┃ dataset                    ┃ metric         ┃ chronos_base ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━┩
-│ electricity_hourly_dataset │ time           │ 148.221      │
-│ electricity_hourly_dataset │ AVG batch time │ 6.791        │
-│ electricity_hourly_dataset │ AVG split time │ 142.601      │
-│ electricity_hourly_dataset │ mase           │ 1.513        │
-└────────────────────────────┴────────────────┴──────────────┘
-2025-03-30 22:44:28.820002: I tensorflow/core/util/util.cc:169] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2025-03-30 22:44:28.823122: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2025-03-30 22:44:28.823137: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-INFO:absl:Lingvo with eager execution is in early development. Please reach out to go/lingvo-eager-migration with bugs. Eager mode can be disable with tf.compat.v1.disable_eager_execution().
-INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
-2025-03-30 22:44:41,INFO,arena,Running on nixtla-foundational-time-series/data/electricity_hourly_dataset.parquet
-INFO:__main__:Running on nixtla-foundational-time-series/data/electricity_hourly_dataset.parquet
-2025-03-30 22:44:43,INFO,arena,Evaluating chronos_large
-INFO:__main__:Evaluating chronos_large
-2025-03-30 22:44:43,INFO,arena,Forecasting chronos_large
-INFO:__main__:Forecasting chronos_large
-Predicting for amazon/chronos-t5-large
-amazon/chronos-t5-large
-0it [00:00, ?it/s]
-  0%|          | 0/21 [00:00<?, ?it/s][A  0%|          | 0/21 [00:03<?, ?it/s]
-0it [00:06, ?it/s]
-Traceback (most recent call last):
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/runpy.py", line 196, in _run_module_as_main
-    return _run_code(code, main_globals, None,
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/runpy.py", line 86, in _run_code
-    exec(code, run_globals)
-  File "/work/pi_shenoy_umass_edu/hshastri/nixtla/experiments/foundation-time-series-arena/xiuhmolpilli/arena.py", line 143, in <module>
-    arena.compete()
-  File "/work/pi_shenoy_umass_edu/hshastri/nixtla/experiments/foundation-time-series-arena/xiuhmolpilli/arena.py", line 70, in compete
-    forecast_df,average_batch_time,average_split_time = model.cross_validation(
-  File "/work/pi_shenoy_umass_edu/hshastri/nixtla/experiments/foundation-time-series-arena/xiuhmolpilli/models/utils/forecaster.py", line 67, in cross_validation
-    y_pred,average_batch_time,total_inference_time = self.forecast(
-  File "/work/pi_shenoy_umass_edu/hshastri/nixtla/experiments/foundation-time-series-arena/xiuhmolpilli/models/foundational/chronos.py", line 103, in forecast
-    pred = self.model.predict(batch, prediction_length=h)
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/chronos/chronos.py", line 510, in predict
-    samples = self.model(
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/chronos/chronos.py", line 347, in forward
-    preds = self.model.generate(
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
-    return func(*args, **kwargs)
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/transformers/generation/utils.py", line 2326, in generate
-    result = self._sample(
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/transformers/generation/utils.py", line 3286, in _sample
-    outputs = self(**model_inputs, return_dict=True)
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py", line 1905, in forward
-    decoder_outputs = self.decoder(
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py", line 1131, in forward
-    layer_outputs = layer_module(
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py", line 706, in forward
-    cross_attention_outputs = self.layer[1](
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py", line 636, in forward
-    attention_output = self.EncDecAttention(
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/hshastri_umass_edu/.conda/envs/foundation-ts/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py", line 566, in forward
-    attn_output = torch.matmul(attn_weights, value_states)
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 322.00 MiB. GPU 
